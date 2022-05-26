@@ -9,7 +9,7 @@ RES = "Res"
 OUT = "Out"
 
 #使用方法：第一个参数为压缩比 1-100 forexample: compress.py 20-60
-print "Start compress..........................................................................."
+print ("Start compress...........................................................................")
 # print "sys.argv---",len(sys.argv)
 # print(sys.argv[0]) # 打印sys.argv的第1个参数
 main = "pngquant.exe"
@@ -32,11 +32,11 @@ fileUtils.copyFileTree(RES,OUT)#复制文件到输出目录
 for dirpath,dirnames,filenames in os.walk(OUT):#压缩目录下的所有文件
             for file in filenames:
                     if file.endswith("png"):
-                        print "compressing......",os.path.join(dirpath, file)
+                        print ("compressing......",os.path.join(dirpath, file))
                         cmd = main + " -f --ext .png --quality "+quality+" "+os.path.join(dirpath, file)
                         os.popen(cmd)
                     # %PNGQUANT% -f --ext .png --quality 90-95 "%%i"
 
-print "End compress................................................................................"
+print ("End compress................................................................................")
 
 os.system("pause")
